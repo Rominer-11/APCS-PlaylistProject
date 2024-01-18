@@ -3,7 +3,8 @@
  * @author
  * @version
  */
-public class Song {
+public class Song 
+{
     //Fields-- what information do we want each Song to store?
     private String name;
     private int seconds;
@@ -70,7 +71,7 @@ public class Song {
         return liked;
     }
 
-    private String toLength()
+    private String getLength()
     {
         if(seconds >= 60)
         {
@@ -87,7 +88,16 @@ public class Song {
 
     public String toString()
     {
-        return "\u0022" + name + "\u0022" + " by " + artist + length;
+        if(liked)
+        {
+            return "\u0022" + name + "\u0022" + " by " + artist + length + " - liked";
+        }
+        else
+        {
+            return "\u0022" + name + "\u0022" + " by " + artist + length;
+        }
+        
+        
     }
 
 }
