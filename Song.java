@@ -21,7 +21,6 @@ public class Song
     {
         this.liked = false;
         this.name = name;
-        this.minutes = minutes;
         this.seconds = seconds;
         this.artist = artist;
     }
@@ -45,7 +44,7 @@ public class Song
         }
         else
         {
-            liked = true
+            liked = true;
         }
     }
 
@@ -71,7 +70,7 @@ public class Song
         return liked;
     }
 
-    private String getLength()
+    public String getLength()
     {
         if(seconds >= 60)
         {
@@ -90,11 +89,11 @@ public class Song
     {
         if(liked)
         {
-            return "\u0022" + name + "\u0022" + " by " + artist + length + " - liked";
+            return "\"" + name + "\"" + " by " + artist + length + " - liked";
         }
         else
         {
-            return "\u0022" + name + "\u0022" + " by " + artist + length;
+            return "\"" + name + "\"" + " by " + artist + length;
         }
         
         
