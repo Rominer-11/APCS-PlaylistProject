@@ -21,7 +21,6 @@ public class Song
     {
         this.liked = false;
         this.name = name;
-        this.minutes = minutes;
         this.seconds = seconds;
         this.artist = artist;
     }
@@ -37,7 +36,7 @@ public class Song
       * What kind of mutator (setter) methods will you need?
       */
 
-    public void LikeButton()
+    public void likeButton()
     {
         if(liked)
         {
@@ -45,7 +44,7 @@ public class Song
         }
         else
         {
-            liked = true
+            liked = true;
         }
     }
 
@@ -90,11 +89,11 @@ public class Song
     {
         if(liked)
         {
-            return "\u0022" + name + "\u0022" + " by " + artist + length + " - liked";
+            return "\"" + name + "\"" + " by " + artist + " " + getLength() + " - liked";
         }
         else
         {
-            return "\u0022" + name + "\u0022" + " by " + artist + length;
+            return "\"" + name + "\"" + " by " + artist + " " + getLength();
         }
         
         

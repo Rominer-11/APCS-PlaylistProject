@@ -10,7 +10,7 @@ public class Playlist
 {
 	private ArrayList<Song> playlist;    
 
-	public class Playlist()
+	public Playlist()
 	{
 		playlist = new ArrayList<Song>();
 	}
@@ -64,23 +64,35 @@ public class Playlist
 		}
 		minutes = (int) (seconds / 60);
 		seconds = seconds - (minutes * 60);
-		return minutes + ":" + seconds;
+		if (seconds < 10)
+		{
+			return minutes + ":0" + seconds;
+		}
+		else
+		{
+			return minutes + ":" + seconds;
+		}
 	}
 	public void removeUnliked()
 	{
-		ArrayList<Song> tempList = new ArrayList<Song>();
-		for (int i = 0; i < playlist.size(); i++)
+		for (int i = playlist.size() - 1; i >= 0; i--)
 		{
-			if (playlist.get(i).getLiked())
+			if (!playlist.get(i).getLiked())
 			{
-				tempList.add(playlist.get(i));
+				playlist.remove(i);
 			}
 		}
-		playlist = tempList;
-		playlist.clear();
-		for (int i = 0; i < tempList.size(); i++)
+	}
+	public int getID(String name)
+	{
+		int ID = 0;
+		for (int i = 0; i < playlist.size(); i++)
 		{
-			playlist.add(tempList.get(i));
+			if (playlist.get(i).getName().equals(name))
+			{
+				ID = i;
+			}
 		}
+		return ID;
 	}
 }
